@@ -9,12 +9,8 @@
 
     <title>FIL Green - Green Code Lab Challenge 2014</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- This is a nice empty css. Feel free to override the theme! -->
-    <link href="css/gclc.css" rel="stylesheet">
-
-    <link href="css/slideshow.css" rel="stylesheet">
+    <!-- All the CSS files -->
+    <link href="build/design.css" rel="stylesheet">
 </head>
 <body>
 
@@ -53,24 +49,7 @@
                 <input id="pauseButton" onclick="toggleInterval()" type="button" value="Play" disabled />
                 <input type="button" value="&#8594;" onclick="toggleSlide(true)" disabled />
                 <input type="button" id="lastButton" value="&#8608;" onclick="goToEdge(true)" disabled />
-                <ul class="dots_commands" id="bulletPoints">
-                </ul>
             </form>
-
-            <!-- Slideshow structure -->
-            <div class="hide">
-                <div class="title">Légende</div>
-                <div class="block">
-                    <div class="left">&#8592;</div>
-                    <div class="slider">Slider</div>
-                    <div class="right">&#8594;</div>
-                </div>
-                <div class="footer">
-                    <div class="nbPictures">nbPictures</div>
-                    <div class="play">Play controls</div>
-                    <div class="bulletPoints">bulletPoints</div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="row">
@@ -103,14 +82,14 @@
                data-widget-id="537334197569200128">Tweets sur #GCLChallenge</a>
             <script>
                 !function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = p + "://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, "script", "twitter-wjs");
+                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = p + "://platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");
             </script>
             <h4>
                 <div class="text-center well">Share your thoughts!</div>
@@ -128,6 +107,7 @@
 </body>
 
 <!-- Slideshow JS -->
-<script type="text/javascript" src="js/slideshow.js"></script>
+<script type="text/javascript" src="build/script.min.js"></script>
+<script type="text/javascript">initSlideshow();</script>
 
 </html>
