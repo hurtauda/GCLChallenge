@@ -4,6 +4,7 @@ var switching;
 var slideNumber = "slideNumber";
 var hideable = "hideable";
 var totalSlide = "totalSlide";
+var transition = true;
 
 window.paused = true;
 
@@ -34,10 +35,24 @@ function toggleSlide(direction) {
     } else {
         var makeVisible = next(visibleID, elements.length); // get the next slide
     }
+
     elements[makeVisible].style.display = "block"; // show the previous or next slide
+    if (transition) {
+
+        transitionSlide(visibleID, makeVisible);
+    }
     colorBulletPoints(makeVisible);
 
     slideNumberElement.innerHTML = makeVisible+1;
+}
+
+function transitionSlide(from, to) {
+    var oldImage = document.getElementById(from).children[0];
+    var newImage = document.getElementById(to).children[0];
+    setTimeout(function() {
+        oldImage.removeAttribute("class");
+        newImage.setAttribute("class", "opaque");
+    }, 10);
 }
 
 function getVisible(elements) {
@@ -141,14 +156,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 var li = document.createElement('li');
                 li.setAttribute('id', key);
                 li.setAttribute('class', 'hideable');
-                if (key == 0) {
-                    li.setAttribute('style', 'display: block;');
-                } else {
-                    li.setAttribute('style', 'display: none;');
-                }
 
                 var img = document.createElement('img');
                 img.setAttribute("src", images[key]);
+
+                if (key == 0) {
+                    li.setAttribute('style', 'display: block;');
+                    img.setAttribute('class', 'opaque');
+                } else {
+                    li.setAttribute('style', 'display: none;');
+                }
 
                 li.appendChild(img);
                 var slideshow_ulElement = document.getElementById('slideshow-ul');
