@@ -170,11 +170,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
 
-            var slideshow_navbarElement = document.getElementById('slideshow-navbar');
-            var navItems = slideshow_navbarElement.children;
+            var slideshow_navbar_pauseElement = document.getElementById('slideshow-navbar-pause');
+            var navItemsPause = slideshow_navbar_pauseElement.children;
 
-            for (var i = 0; i < navItems.length; ++i) {
-                navItems[i].removeAttribute('disabled');
+            for (var i = 0; i < navItemsPause.length; ++i) {
+                navItemsPause[i].removeAttribute('disabled');
+            }
+
+            var slideshow_navbar_buttonElement = document.getElementById('slideshow-navbar-button');
+            var navItemsButton = slideshow_navbar_buttonElement.children;
+
+            for (var i = 0; i < navItemsButton.length; ++i) {
+                navItemsButton[i].removeAttribute('disabled');
             }
 
         }
