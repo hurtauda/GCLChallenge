@@ -1,13 +1,16 @@
 var interval = 3000; // You can change this value to your desired speed. The value is in milliseconds, so if you want to advance a slide every 5 seconds, set this to 5000.
-var switching = setInterval("toggleSlide(true)", interval);
+var switching;
 
 var slideNumber = "slideNumber";
 var hideable = "hideable";
 var totalSlide = "totalSlide";
 
-window.paused = false;
+window.paused = true;
 
-function toggleInterval() {
+function toggleInterval(paused) {
+    if (paused !== undefined) {
+        window.paused = paused;
+    }
     var button = document.getElementById("pauseButton");
     if(!window.paused) {
         clearInterval(switching);
@@ -103,6 +106,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 document.getElementById('slideshow-ul').appendChild(li);
             }
             initSlideshow();
+            toggleInterval();
+
+            document.getElementById('slideshow-ul').addEventListener('mouseover', function() {
+                toggleInterval(false);
+            });
+            document.getElementById('slideshow-ul').addEventListener('mouseout', function() {
+                toggleInterval(true);
+            });
         }
     }
 
