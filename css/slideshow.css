@@ -8,7 +8,14 @@
     vertical-align: middle;
 }
 
-#slideshow ul {
+@media (max-width: 767px) {
+    #slideshow img {
+        max-width: 300px;
+        max-height: 128px;
+    }
+}
+
+#slideshow-ul {
     padding-left: 0px;
     position: relative;
     display: inline-block;
@@ -28,4 +35,10 @@
     -moz-box-shadow:    0 0 65px #d7d2ce inset, 0 0 20px #b0aba7 inset;
     box-shadow:         0 0 65px #d7d2ce inset, 0 0 20px #b0aba7 inset;
     /*background-image: linear-gradient(to right, white, #E6E6E6);*/
+}
+
+@media (max-width: 767px) {
+    #slideshow-ul {
+        width: 300px;
+    }
 }
