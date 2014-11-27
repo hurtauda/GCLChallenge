@@ -1,0 +1,7 @@
+.hideable {
+    display: none;
+}
+#slideshow img {
+    width: 900px;
+    height: 360px;
+}

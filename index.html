@@ -35,10 +35,47 @@
 
 <div class="container">
     <div class="row">
-        <div id="slideshow">
+        <div id="slideshow" class="text-center">
+            <ul style="list-style-type:none; margin-left:-2em;">
+                <li id="1" class="hideable" style="display: block;">
+                    <img src="images/bach_creek_river.jpg" alt="hinterground" />
+                </li>
+                <li id="2" class="hideable">
+                    <img src="images/canoe_water_nature.jpg" alt="Berries" />
+                </li>
+                <li id="3" class="hideable">
+                    <img src="images/guyana_sky_clouds.jpg" alt="Cheetah" />
+                </li>
+                <li id="4" class="hideable">
+                    <img src="images/hawaii_sky_clouds.jpg" alt="Fence" />
+                </li>
+                <li id="5" class="hideable">
+                    <img src="images/water_nature_river.jpg" alt="Paper" />
+                </li>
+            </ul>
+            <!-- Buttons to go back and forth between slides. -->
             <p>
-                <marquee>This could be a nice place for a slideshow, don't you think?</marquee>
+                Slide <!-- you can change "Slide" to Page, Item, etc. -->
+                <span id="slideNumber">
+                <script type="text/javascript">
+                    var elements = document.getElementsByClassName("hideable ");
+                    var vis = getVisible(elements) + 1;
+                    document.write(vis);
+                </script>
+                </span>
+                of <!-- Or use "/", as in Page 3/7 -->
+                <script type="text/javascript">
+                    // Write the number of slides to HTML. Dynamically changes as you add or remove slides.
+                    document.write(document.getElementsByClassName("hideable ").length);
+                </script>
             </p>
+            <form>
+                <input type="button" id="firstButton" value="&#8606;" onclick="goToEdge(false)" />
+                <input type="button" value="&#8592;" onclick="toggleSlide(false)" />
+                <input id="pauseButton" onclick="toggleInterval()" type="button" value="Pause" />
+                <input type="button" value="&#8594;" onclick="toggleSlide(true)" />
+                <input type="button" id="lastButton" value="&#8608;" onclick="goToEdge(true)" />
+            </form>
 
             <!-- Slideshow structure -->
             <div class="hide">
@@ -54,7 +91,6 @@
                     <div class="bulletPoints">bulletPoints</div>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="row">
@@ -110,4 +146,8 @@
     </footer>
 </div>
 </body>
+
+<!-- Slideshow JS -->
+<script type="text/javascript" src="js/slideshow.js"></script>
+
 </html>
