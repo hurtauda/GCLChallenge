@@ -114,6 +114,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById('slideshow-ul').addEventListener('mouseout', function() {
                 toggleInterval(true);
             });
+
+            var navItems = document.getElementById('slideshow-navbar').children;
+
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].removeAttribute('disabled');
+            }
+
         }
     }
 
