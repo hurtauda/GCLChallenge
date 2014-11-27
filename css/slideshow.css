@@ -8,7 +8,7 @@
     vertical-align: middle;
 }
 
-#slideshow ul {
+#slideshow-ul {
     padding-left: 0px;
     position: relative;
     display: inline-block;
@@ -45,15 +45,10 @@
     height:8px; width: 8px;
     margin: 0 5px;
     text-indent: -9999px;
-    background: #fff;
+    background: #000000;
+    cursor:pointer;
 
     border-radius: 50%;
     box-shadow: 0 1px 2px rgba(0,0,0,0.55) inset;
+}
 
-}
-/* quelques styles au focus */
-.dots_commands a:focus {
-    outline: none;
-    background: orange;
-}
-.dots_commands li:first-child a { z-index: 25; }
