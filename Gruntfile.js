@@ -21,6 +21,17 @@ module.exports = function (grunt) {
                     'build/script.min.js': ['js/slideshow.js']
                 }
             }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    'index.html': 'index_prd.html'
+                }
+            }
         }
     });
  
@@ -28,7 +39,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
  
     // Default tasks.
-    grunt.registerTask('default', ['uncss', 'cssmin', 'uglify']);
+    grunt.registerTask('default', ['uncss', 'cssmin', 'uglify', 'htmlmin']);
 };
