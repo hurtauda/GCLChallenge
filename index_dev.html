@@ -42,36 +42,24 @@
         <div id="slideshow" class="text-center">
             <ul style="list-style-type:none; margin-left:-2em;">
                 <li id="1" class="hideable" style="display: block;">
-                    <img src="images/bach_creek_river.jpg" alt="hinterground" />
+                    <img src="img/d/bach_creek_river.jpg" alt="bach_creek_river" />
                 </li>
                 <li id="2" class="hideable">
-                    <img src="images/canoe_water_nature.jpg" alt="Berries" />
+                    <img src="img/d/canoe_water_nature.jpg" alt="canoe_water_nature" />
                 </li>
                 <li id="3" class="hideable">
-                    <img src="images/guyana_sky_clouds.jpg" alt="Cheetah" />
+                    <img src="img/d/guyana_sky_clouds.jpg" alt="guyana_sky_clouds" />
                 </li>
                 <li id="4" class="hideable">
-                    <img src="images/hawaii_sky_clouds.jpg" alt="Fence" />
+                    <img src="img/d/hawaii_sky_clouds.jpg" alt="hawaii_sky_clouds" />
                 </li>
                 <li id="5" class="hideable">
-                    <img src="images/water_nature_river.jpg" alt="Paper" />
+                    <img src="img/d/water_nature_river.jpg" alt="water_nature_river" />
                 </li>
             </ul>
             <!-- Buttons to go back and forth between slides. -->
             <p>
-                Slide <!-- you can change "Slide" to Page, Item, etc. -->
-                <span id="slideNumber">
-                <script type="text/javascript">
-                    var elements = document.getElementsByClassName("hideable ");
-                    var vis = getVisible(elements) + 1;
-                    document.write(vis);
-                </script>
-                </span>
-                of <!-- Or use "/", as in Page 3/7 -->
-                <script type="text/javascript">
-                    // Write the number of slides to HTML. Dynamically changes as you add or remove slides.
-                    document.write(document.getElementsByClassName("hideable ").length);
-                </script>
+                Slide <span id="slideNumber"></span> of <span id="totalSlide"></span>
             </p>
             <form>
                 <input type="button" id="firstButton" value="&#8606;" onclick="goToEdge(false)" />
@@ -153,5 +141,6 @@
 
 <!-- Slideshow JS -->
 <script type="text/javascript" src="js/slideshow.js"></script>
+<script type="text/javascript">initSlideshow();</script>
 
 </html>
