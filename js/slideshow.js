@@ -34,6 +34,7 @@ function toggleSlide(direction) {
         var makeVisible = next(visibleID, elements.length); // get the next slide
     }
     elements[makeVisible].style.display = "block"; // show the previous or next slide
+    colorBulletPoints(makeVisible);
     document.getElementById(slideNumber).innerHTML = (makeVisible + 1);
 }
 
@@ -63,15 +64,18 @@ function goToEdge(where) {
     if(!where) {
         elements[0].style.display = "block";
         sn.innerHTML = 1;
+        colorBulletPoints(0);
     } else {
         elements[elements.length-1].style.display = "block";
         sn.innerHTML = elements.length;
+        colorBulletPoints(elements.length-1);
     }
 }
 
 function initSlideshow() {
     setSlideNumber();
     setTotalSlide();
+    setBulletPoints();
 }
 
 function setSlideNumber() {
@@ -79,8 +83,44 @@ function setSlideNumber() {
     document.getElementById(slideNumber).innerText = getVisible(elements) + 1;
 }
 
+function getTotalNbSlide() {
+    return document.getElementsByClassName(hideable).length;
+}
 function setTotalSlide() {
-    document.getElementById(totalSlide).innerText = document.getElementsByClassName(hideable).length;
+    document.getElementById(totalSlide).innerText = getTotalNbSlide();
+}
+
+function setBulletPoints() {
+    var ul = document.getElementById("bulletPoints");
+    var nbPoints = getTotalNbSlide();
+    for(var i = 0; i < nbPoints; i++) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        ul.appendChild(li);
+        a.appendChild(document.createTextNode(i));
+        a.setAttribute("onClick","goToImage("+i+")")
+        a.setAttribute("id", "point"+i);
+        a.setAttribute("style","cursor:pointer;background: green;");
+        li.appendChild(a);
+    }
+}
+
+function goToImage(selectedId){
+    var elements = document.getElementsByClassName(hideable); // gets all the "slides" in our slideshow
+    var visibleID = getVisible(elements);
+    elements[visibleID].style.display = "none"; // hide the currently visible LI
+    elements[selectedId].style.display = "block"; // show the slide
+    document.getElementById(slideNumber).innerHTML = (selectedId + 1);
+    colorBulletPoints(selectedId);
+}
+
+function colorBulletPoints(selectedId){
+    var currentPoint = document.getElementById("point"+selectedId);
+    for(var i = 0; i < getTotalNbSlide(); i++) {
+        var otherBulletPoint = document.getElementById("point"+i);
+        otherBulletPoint.style.background = "black";
+    }
+    currentPoint.style.background = "green";
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
