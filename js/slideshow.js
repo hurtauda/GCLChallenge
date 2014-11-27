@@ -57,23 +57,6 @@ function next(num, arrayLength) {
     return (num == arrayLength-1) ? 0 : num + 1;
 }
 
-function goToEdge(where) {
-    var elements = document.getElementsByClassName(hideable);
-    var sn = document.getElementById(slideNumber);
-    var visibleID = getVisible(elements);
-
-    elements[visibleID].style.display = "none";
-    if(!where) {
-        elements[0].style.display = "block";
-        sn.innerHTML = 1;
-        colorBulletPoints(0);
-    } else {
-        elements[elements.length-1].style.display = "block";
-        sn.innerHTML = elements.length;
-        colorBulletPoints(elements.length-1);
-    }
-}
-
 function initSlideshow() {
     setSlideNumber();
     setTotalSlide();
@@ -108,7 +91,7 @@ function setBulletPoints() {
         li.appendChild(a);
     }
     var otherBulletPoint = document.getElementById("point0");
-    otherBulletPoint.style.background = "green";
+    otherBulletPoint.style.background = "#7CB17D";
 }
 
 function goToImage(selectedId){
@@ -127,7 +110,7 @@ function colorBulletPoints(selectedId){
         var otherBulletPoint = document.getElementById("point"+i);
         otherBulletPoint.style.background = "black";
     }
-    currentPoint.style.background = "green";
+    currentPoint.style.background = "#7CB17D";
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
