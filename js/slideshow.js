@@ -92,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 li.setAttribute('class', 'hideable');
                 if (key == 0) {
                     li.setAttribute('style', 'display: block;');
+                } else {
+                    li.setAttribute('style', 'display: none;');
                 }
 
                 var img = document.createElement('img');
