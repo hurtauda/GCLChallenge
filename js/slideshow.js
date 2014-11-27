@@ -92,8 +92,9 @@ function setTotalSlide() {
 
 function setBulletPoints() {
     var ul = document.getElementById("bulletPoints");
+    ul.innerHTML = "";
     var nbPoints = getTotalNbSlide();
-    for(var i = 0; i < nbPoints; i++) {
+    for (var i = 0; i < nbPoints; i++) {
         var li = document.createElement("li");
         var a = document.createElement("a");
         ul.appendChild(li);
