@@ -1,3 +1,5 @@
+"use strict";
+
 var interval = 3000; // You can change this value to your desired speed. The value is in milliseconds, so if you want to advance a slide every 5 seconds, set this to 5000.
 var switching;
 
@@ -75,7 +77,7 @@ function resetImageClass(which) {
 
 function getVisible(elements) {
     for(var i = 0; i < elements.length; ++i) {
-        if(elements[i].style.display == "block") {
+        if(elements[i].style.display === "block") {
             return i;
         }
     }

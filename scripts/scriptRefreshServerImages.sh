@@ -11,13 +11,13 @@ rm img/m/serv/*
 for file in /var/www/gclcimages/*; do
 #for file in /Users/hurtauda/GCLChallenge/GCLChallenge/gclcimages/*; do
         filename=$(basename $file)
-    	/usr/bin/convert $file -scale 900x360\> upload/d$filename
-        /usr/bin/jpegtran -copy none -optimize -progressive -outfile img/d/serv/$filename upload/d$filename
-        rm upload/d$filename
+    	/usr/bin/convert $file -scale 900x360\> img/d/serv/$filename #upload/d$filename
+        #/usr/bin/jpegtran -copy none -optimize -progressive -outfile img/d/serv/$filename upload/d$filename
+        #rm upload/d$filename
 
-        /usr/bin/convert $file -scale 320x128\> upload/m$filename
-        /usr/bin/jpegtran -copy none -optimize -progressive -outfile img/m/serv/$filename upload/m$filename
-        rm upload/m$filename
+        /usr/bin/convert $file -scale 320x128\> img/m/serv/$filename #upload/m$filename
+        #/usr/bin/jpegtran -copy none -optimize -progressive -outfile img/m/serv/$filename upload/m$filename
+        #rm upload/m$filename
 done
 
 /usr/bin/php scripts/makejson.php
