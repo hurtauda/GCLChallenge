@@ -1,7 +1,30 @@
 .hideable {
     display: none;
 }
+
 #slideshow img {
+    max-width: 900px;
+    max-height: 360px;
+    vertical-align: middle;
+}
+
+#slideshow ul {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
     width: 900px;
-    height: 360px;
+    background: #e8e8e8;
+    font-size: 1.6em;
+    line-height: 5em;
+
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.11, #e8e8e8), color-stop(0.56, #f9f9f9));
+    background-image: -webkit-linear-gradient(center bottom, #e8e8e8 11%, #f9f9f9 56%);
+    background-image: -moz-linear-gradient(center bottom, #e8e8e8 11%, #f9f9f9 56%);
+    background-image: linear-gradient(center bottom, #e8e8e8 11%, #f9f9f9 56%);
+
+    -webkit-box-shadow: 0 0 65px #d7d2ce inset, 0 0 20px #b0aba7 inset;
+    -moz-box-shadow:    0 0 65px #d7d2ce inset, 0 0 20px #b0aba7 inset;
+    box-shadow:         0 0 65px #d7d2ce inset, 0 0 20px #b0aba7 inset;
+    /*background-image: linear-gradient(to right, white, #E6E6E6);*/
 }
