@@ -43,12 +43,12 @@
             <p>
                 Slide <span id="slideNumber"></span> of <span id="totalSlide"></span>
             </p>
-            <form>
-                <input type="button" id="firstButton" value="&#8606;" onclick="goToEdge(false)" />
-                <input type="button" value="&#8592;" onclick="toggleSlide(false)" />
-                <input id="pauseButton" onclick="toggleInterval()" type="button" value="Pause" />
-                <input type="button" value="&#8594;" onclick="toggleSlide(true)" />
-                <input type="button" id="lastButton" value="&#8608;" onclick="goToEdge(true)" />
+            <form id="slideshow-navbar">
+                <input type="button" id="firstButton" value="&#8606;" onclick="goToEdge(false)" disabled />
+                <input type="button" value="&#8592;" onclick="toggleSlide(false)" disabled />
+                <input id="pauseButton" onclick="toggleInterval()" type="button" value="Play" disabled />
+                <input type="button" value="&#8594;" onclick="toggleSlide(true)" disabled />
+                <input type="button" id="lastButton" value="&#8608;" onclick="goToEdge(true)" disabled />
             </form>
         </div>
     </div>
