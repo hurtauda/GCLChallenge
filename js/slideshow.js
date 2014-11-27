@@ -147,12 +147,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             slideshow_ulElement.addEventListener('mouseout', function() {
                 toggleInterval(true);
             });
-            slideshow_ulElement.addEventListener('touchstart', function() {
-                toggleInterval(false);
-            });
-            slideshow_ulElement.addEventListener('touchend', function() {
-                toggleInterval(true);
-            });
+
             document.onkeydown = function(e) {
                 e = e || window.event;
                 switch (e.which || e.keyCode) {
