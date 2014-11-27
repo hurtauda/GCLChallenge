@@ -25,6 +25,7 @@ function toggleInterval(paused) {
 // direction = boolean value: true or false. If true, go to NEXT slide; otherwise go to PREV slide
 function toggleSlide(direction) {
     var elements = document.getElementsByClassName(hideable); // gets all the "slides" in our slideshow
+    var slideNumberElement=document.getElementById(slideNumber);
     var visibleID = getVisible(elements);
 
     elements[visibleID].style.display = "none"; // hideable the currently visible LI
@@ -35,7 +36,8 @@ function toggleSlide(direction) {
     }
     elements[makeVisible].style.display = "block"; // show the previous or next slide
     colorBulletPoints(makeVisible);
-    document.getElementById(slideNumber).innerHTML = (makeVisible + 1);
+
+    slideNumberElement.innerHTML = makeVisible+1;
 }
 
 function getVisible(elements) {
@@ -57,9 +59,9 @@ function next(num, arrayLength) {
 
 function goToEdge(where) {
     var elements = document.getElementsByClassName(hideable);
+    var sn = document.getElementById(slideNumber);
     var visibleID = getVisible(elements);
 
-    var sn = document.getElementById(slideNumber);
     elements[visibleID].style.display = "none";
     if(!where) {
         elements[0].style.display = "block";
@@ -80,38 +82,43 @@ function initSlideshow() {
 
 function setSlideNumber() {
     var elements = document.getElementsByClassName(hideable);
-    document.getElementById(slideNumber).innerText = getVisible(elements) + 1;
+    var slideNumberElement = document.getElementById(slideNumber);
+    slideNumberElement.innerText = getVisible(elements) + 1;
 }
 
 function getTotalNbSlide() {
-    return document.getElementsByClassName(hideable).length;
+    var hideableElement = document.getElementsByClassName(hideable);
+    return hideableElement.length;
 }
 function setTotalSlide() {
-    document.getElementById(totalSlide).innerText = getTotalNbSlide();
+    var totalSlideElement = document.getElementById(totalSlide);
+    totalSlideElement.innerText = getTotalNbSlide();
 }
 
 function setBulletPoints() {
     var ul = document.getElementById("bulletPoints");
     ul.innerHTML = "";
     var nbPoints = getTotalNbSlide();
-    for (var i = 0; i < nbPoints; i++) {
+
+    for(var i = 0; i < nbPoints; i++) {
         var li = document.createElement("li");
         var a = document.createElement("a");
         ul.appendChild(li);
-        a.appendChild(document.createTextNode(i));
-        a.setAttribute("onClick","goToImage("+i+")")
+        a.setAttribute("onClick","goToImage("+i+")");
         a.setAttribute("id", "point"+i);
-        a.setAttribute("style","cursor:pointer;background: green;");
         li.appendChild(a);
     }
+    var otherBulletPoint = document.getElementById("point0");
+    otherBulletPoint.style.background = "green";
 }
 
 function goToImage(selectedId){
     var elements = document.getElementsByClassName(hideable); // gets all the "slides" in our slideshow
+    var slideNumberElement = document.getElementById(slideNumber)
     var visibleID = getVisible(elements);
     elements[visibleID].style.display = "none"; // hide the currently visible LI
     elements[selectedId].style.display = "block"; // show the slide
-    document.getElementById(slideNumber).innerHTML = (selectedId + 1);
+    slideNumber.innerHTML = (selectedId + 1);
     colorBulletPoints(selectedId);
 }
 
@@ -144,15 +151,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 img.setAttribute("src", images[key]);
 
                 li.appendChild(img);
-                document.getElementById('slideshow-ul').appendChild(li);
+                var slideshow_ulElement = document.getElementById('slideshow-ul');
+                slideshow_ulElement.appendChild(li);
             }
             initSlideshow();
             toggleInterval();
 
-            document.getElementById('slideshow-ul').addEventListener('mouseover', function() {
+            slideshow_ulElement = document.getElementById('slideshow-ul');
+            slideshow_ulElement.addEventListener('mouseover', function() {
                 toggleInterval(false);
             });
-            document.getElementById('slideshow-ul').addEventListener('mouseout', function() {
+            slideshow_ulElement = document.getElementById('slideshow-ul');
+            slideshow_ulElement.addEventListener('mouseout', function() {
                 toggleInterval(true);
             });
             document.onkeydown = function(e) {
@@ -172,7 +182,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
 
-            var navItems = document.getElementById('slideshow-navbar').children;
+            var slideshow_navbarElement = document.getElementById('slideshow-navbar');
+            var navItems = slideshow_navbarElement.children;
 
             for (var i = 0; i < navItems.length; i++) {
                 navItems[i].removeAttribute('disabled');
@@ -180,7 +191,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         }
     }
-
     xhr.open("GET", "get-images.php", true);
     xhr.send();
 });
