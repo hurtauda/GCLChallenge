@@ -6,6 +6,9 @@
     max-width: 900px;
     max-height: 360px;
     vertical-align: middle;
+}
+
+#slideshow img.tr {
     left:0;
     -webkit-transition: opacity 1s ease-in-out;
     -moz-transition: opacity 1s ease-in-out;
@@ -16,7 +19,7 @@
     filter: alpha(opacity=0);
 }
 
-#slideshow img.opaque {
+#slideshow img.tr.opaque {
     opacity:1;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=1);

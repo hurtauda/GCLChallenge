@@ -38,7 +38,6 @@ function toggleSlide(direction) {
 
     elements[makeVisible].style.display = "block"; // show the previous or next slide
     if (transition) {
-
         transitionSlide(visibleID, makeVisible);
     }
     colorBulletPoints(makeVisible);
@@ -47,12 +46,12 @@ function toggleSlide(direction) {
 }
 
 function transitionSlide(from, to) {
-    var oldImage = document.getElementById(from).children[0];
-    var newImage = document.getElementById(to).children[0];
     setTimeout(function() {
-        oldImage.removeAttribute("class");
-        newImage.setAttribute("class", "opaque");
-    }, 10);
+        var oldImage = document.getElementById(from).children[0];
+        var newImage = document.getElementById(to).children[0];
+        oldImage.setAttribute("class", "tr");
+        newImage.setAttribute("class", "tr opaque");
+    }, 15);
 }
 
 function getVisible(elements) {
@@ -105,6 +104,7 @@ function getTotalNbSlide() {
     var hideableElement = document.getElementsByClassName(hideable);
     return hideableElement.length;
 }
+
 function setTotalSlide() {
     var totalSlideElement = document.getElementById(totalSlide);
     totalSlideElement.innerText = getTotalNbSlide();
@@ -162,9 +162,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
                 if (key == 0) {
                     li.setAttribute('style', 'display: block;');
-                    img.setAttribute('class', 'opaque');
+                    if (transition) {
+                        img.setAttribute('class', 'tr opaque');
+                    }
                 } else {
                     li.setAttribute('style', 'display: none;');
+                    if (transition) {
+                        img.setAttribute('class', 'tr');
+                    }
                 }
 
                 li.appendChild(img);
