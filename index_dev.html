@@ -21,7 +21,7 @@
 <nav class="navbar glc-navbar navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <img src="images/gclc.png" width="62" style="float: left;"/>
+            <img src="img/gclc.png" width="62" style="float: left;"/>
             <a class="navbar-brand">GreenCodeLab Challenge 2014</a>
         </div>
     </div>
@@ -40,19 +40,35 @@
 <div class="container">
     <div class="row">
         <div id="slideshow" class="text-center">
-            <ul id="slideshow-ul" style="list-style-type:none;"></ul>
-            <!-- Buttons to go back and forth between slides. -->
-            <p>
-                Slide <span id="slideNumber"></span> of <span id="totalSlide"></span>
-            </p>
-            <form id="slideshow-navbar">
-                <input type="button" id="firstButton" value="&#8606;" onclick="goToEdge(false)" disabled />
-                <input type="button" value="&#8592;" onclick="toggleSlide(false)" disabled />
-                <input id="pauseButton" onclick="toggleInterval()" type="button" value="Play" disabled />
-                <input type="button" value="&#8594;" onclick="toggleSlide(true)" disabled />
-                <input type="button" id="lastButton" value="&#8608;" onclick="goToEdge(true)" disabled />
-                <ul class="dots_commands" id="bulletPoints"><li><a></a></li></ul>
-            </form>
+            <div id="slideshow-pause">
+                <form id="slideshow-navbar-pause">
+                    <input class=pButton id="pauseButton" onclick="toggleInterval()" type="button" value="Play" disabled/>
+                </form>
+            </div>
+            <div id="slideshow-button">
+                <form id="slideshow-navbar-button">
+                    <input class=mButton id="leftButton" type="button" value="&#8592;" onclick="toggleSlide(false)" disabled />
+                    <input class=mButton id="rightButton" type="button" value="&#8594;" onclick="toggleSlide(true)" disabled />
+                </form>
+            </div>
+            <div id="slideshow-image">
+                <ul id="slideshow-ul" style="list-style-type:none;">
+
+                </ul>
+                <div id="caption">
+
+                </div>
+                <div class="footer">
+                    <span id="number">
+                        <p>
+                            <span id="slideNumber"></span>/<span id="totalSlide"></span>
+                        </p>
+                    </span>
+                    <span id="spanBulletPoints">
+                        <ul class="dots_commands" id="bulletPoints"><li><a></a></li></ul>
+                    </span>
+                </div>
+            </div>
             <input type="button" id="transition" value="Transition" onclick="changeTransition()" />
         </div>
     </div>

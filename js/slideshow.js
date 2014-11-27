@@ -90,23 +90,6 @@ function next(num, arrayLength) {
     return (num == arrayLength-1) ? 0 : num + 1;
 }
 
-function goToEdge(where) {
-    var elements = document.getElementsByClassName(hideable);
-    var sn = document.getElementById(slideNumber);
-    var visibleID = getVisible(elements);
-
-    elements[visibleID].style.display = "none";
-    if(!where) {
-        elements[0].style.display = "block";
-        sn.innerHTML = 1;
-        colorBulletPoints(0);
-    } else {
-        elements[elements.length-1].style.display = "block";
-        sn.innerHTML = elements.length;
-        colorBulletPoints(elements.length-1);
-    }
-}
-
 function initSlideshow() {
     setSlideNumber();
     setTotalSlide();
@@ -143,7 +126,7 @@ function setBulletPoints() {
         li.appendChild(a);
     }
     var otherBulletPoint = document.getElementById("point0");
-    otherBulletPoint.style.background = "green";
+    otherBulletPoint.style.background = "#7CB17D";
 }
 
 function goToImage(selectedId){
@@ -152,7 +135,7 @@ function goToImage(selectedId){
     var visibleID = getVisible(elements);
     elements[visibleID].style.display = "none"; // hide the currently visible LI
     elements[selectedId].style.display = "block"; // show the slide
-    slideNumber.innerHTML = (selectedId + 1);
+    slideNumberElement.innerHTML = (selectedId + 1);
     colorBulletPoints(selectedId);
 }
 
@@ -162,7 +145,7 @@ function colorBulletPoints(selectedId){
         var otherBulletPoint = document.getElementById("point"+i);
         otherBulletPoint.style.background = "black";
     }
-    currentPoint.style.background = "green";
+    currentPoint.style.background = "#7CB17D";
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -205,12 +188,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             slideshow_ulElement.addEventListener('mouseout', function() {
                 toggleInterval(true);
             });
-            slideshow_ulElement.addEventListener('touchstart', function() {
-                toggleInterval(false);
-            });
-            slideshow_ulElement.addEventListener('touchend', function() {
-                toggleInterval(true);
-            });
+
             document.onkeydown = function(e) {
                 e = e || window.event;
                 switch (e.which || e.keyCode) {
@@ -228,11 +206,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
 
-            var slideshow_navbarElement = document.getElementById('slideshow-navbar');
-            var navItems = slideshow_navbarElement.children;
+            var slideshow_navbar_pauseElement = document.getElementById('slideshow-navbar-pause');
+            var navItemsPause = slideshow_navbar_pauseElement.children;
 
-            for (var i = 0; i < navItems.length; ++i) {
-                navItems[i].removeAttribute('disabled');
+            for (var i = 0; i < navItemsPause.length; ++i) {
+                navItemsPause[i].removeAttribute('disabled');
+            }
+
+            var slideshow_navbar_buttonElement = document.getElementById('slideshow-navbar-button');
+            var navItemsButton = slideshow_navbar_buttonElement.children;
+
+            for (var i = 0; i < navItemsButton.length; ++i) {
+                navItemsButton[i].removeAttribute('disabled');
             }
 
         }
