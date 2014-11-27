@@ -54,6 +54,25 @@ function transitionSlide(from, to) {
     }, 15);
 }
 
+function changeTransition() {
+    transition = !transition;
+    resetImageClass(transition);
+}
+
+//boolean : true for the transition, false without
+function resetImageClass(which) {
+    var nbPoints = getTotalNbSlide();
+    var image;
+    for(var i = 0; i < nbPoints; ++i) {
+        image = document.getElementById(i).children[0];
+        if (which) {
+            image.setAttribute('class', 'tr');
+        } else {
+            image.removeAttribute('class');
+        }
+    }
+}
+
 function getVisible(elements) {
     for(var i = 0; i < elements.length; ++i) {
         if(elements[i].style.display == "block") {
