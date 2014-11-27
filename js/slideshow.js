@@ -41,7 +41,7 @@ function toggleSlide(direction) {
 }
 
 function getVisible(elements) {
-    for(var i = 0; i < elements.length; i++) {
+    for(var i = 0; i < elements.length; ++i) {
         if(elements[i].style.display == "block") {
             return i;
         }
@@ -100,7 +100,7 @@ function setBulletPoints() {
     ul.innerHTML = "";
     var nbPoints = getTotalNbSlide();
 
-    for(var i = 0; i < nbPoints; i++) {
+    for(var i = 0; i < nbPoints; ++i) {
         var li = document.createElement("li");
         var a = document.createElement("a");
         ul.appendChild(li);
@@ -124,7 +124,7 @@ function goToImage(selectedId){
 
 function colorBulletPoints(selectedId){
     var currentPoint = document.getElementById("point"+selectedId);
-    for(var i = 0; i < getTotalNbSlide(); i++) {
+    for(var i = 0; i < getTotalNbSlide(); ++i) {
         var otherBulletPoint = document.getElementById("point"+i);
         otherBulletPoint.style.background = "black";
     }
@@ -161,8 +161,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
             slideshow_ulElement.addEventListener('mouseover', function() {
                 toggleInterval(false);
             });
-            slideshow_ulElement = document.getElementById('slideshow-ul');
             slideshow_ulElement.addEventListener('mouseout', function() {
+                toggleInterval(true);
+            });
+            slideshow_ulElement.addEventListener('touchstart', function() {
+                toggleInterval(false);
+            });
+            slideshow_ulElement.addEventListener('touchend', function() {
                 toggleInterval(true);
             });
             document.onkeydown = function(e) {
@@ -185,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var slideshow_navbarElement = document.getElementById('slideshow-navbar');
             var navItems = slideshow_navbarElement.children;
 
-            for (var i = 0; i < navItems.length; i++) {
+            for (var i = 0; i < navItems.length; ++i) {
                 navItems[i].removeAttribute('disabled');
             }
 
