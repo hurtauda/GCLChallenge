@@ -41,7 +41,7 @@ function toggleSlide(direction) {
 }
 
 function getVisible(elements) {
-    for(var i = 0; i < elements.length; i++) {
+    for(var i = 0; i < elements.length; ++i) {
         if(elements[i].style.display == "block") {
             return i;
         }
@@ -80,9 +80,10 @@ function setTotalSlide() {
 
 function setBulletPoints() {
     var ul = document.getElementById("bulletPoints");
+    ul.innerHTML = "";
     var nbPoints = getTotalNbSlide();
 
-    for(var i = 0; i < nbPoints; i++) {
+    for(var i = 0; i < nbPoints; ++i) {
         var li = document.createElement("li");
         var a = document.createElement("a");
         ul.appendChild(li);
@@ -100,13 +101,13 @@ function goToImage(selectedId){
     var visibleID = getVisible(elements);
     elements[visibleID].style.display = "none"; // hide the currently visible LI
     elements[selectedId].style.display = "block"; // show the slide
-    slideNumber.innerHTML = (selectedId + 1);
+    slideNumberElement.innerHTML = (selectedId + 1);
     colorBulletPoints(selectedId);
 }
 
 function colorBulletPoints(selectedId){
     var currentPoint = document.getElementById("point"+selectedId);
-    for(var i = 0; i < getTotalNbSlide(); i++) {
+    for(var i = 0; i < getTotalNbSlide(); ++i) {
         var otherBulletPoint = document.getElementById("point"+i);
         otherBulletPoint.style.background = "black";
     }
@@ -143,15 +144,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
             slideshow_ulElement.addEventListener('mouseover', function() {
                 toggleInterval(false);
             });
-            slideshow_ulElement = document.getElementById('slideshow-ul');
             slideshow_ulElement.addEventListener('mouseout', function() {
                 toggleInterval(true);
             });
+            slideshow_ulElement.addEventListener('touchstart', function() {
+                toggleInterval(false);
+            });
+            slideshow_ulElement.addEventListener('touchend', function() {
+                toggleInterval(true);
+            });
+            document.onkeydown = function(e) {
+                e = e || window.event;
+                switch (e.which || e.keyCode) {
+                    case 32:
+                        toggleInterval();
+                        break;
+
+                    case 37:
+                        toggleSlide(false);
+                        break;
+
+                    case 39:
+                        toggleSlide(true);
+                        break;
+                }
+            }
 
             var slideshow_navbarElement = document.getElementById('slideshow-navbar');
             var navItems = slideshow_navbarElement.children;
 
-            for (var i = 0; i < navItems.length; i++) {
+            for (var i = 0; i < navItems.length; ++i) {
                 navItems[i].removeAttribute('disabled');
             }
 
