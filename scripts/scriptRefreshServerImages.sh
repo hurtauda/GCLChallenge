@@ -20,4 +20,4 @@ for file in /var/www/gclcimages/*; do
         rm upload/m$filename
 done
 
-php scripts/makejson.php
+/usr/bin/php scripts/makejson.php
