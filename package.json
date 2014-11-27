@@ -1,0 +1,25 @@
+{
+  "name": "GCLChallenge",
+  "version": "0.0.0",
+  "description": "node js modules",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt-uncss": "^0.3.7",
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hurtauda/GCLChallenge.git"
+  },
+  "author": "FIL_Green",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hurtauda/GCLChallenge/issues"
+  },
+  "homepage": "https://github.com/hurtauda/GCLChallenge"
+}
