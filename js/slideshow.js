@@ -79,3 +79,31 @@ function setSlideNumber() {
 function setTotalSlide() {
     document.getElementById(totalSlide).innerText = document.getElementsByClassName(hideable).length;
 }
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+            var images = JSON.parse(xhr.responseText);
+            for (var key in images) {
+                var li = document.createElement('li');
+                li.setAttribute('id', key);
+                li.setAttribute('class', 'hideable');
+                if (key == 0) {
+                    li.setAttribute('style', 'display: block;');
+                }
+
+                var img = document.createElement('img');
+                img.setAttribute("src", images[key]);
+
+                li.appendChild(img);
+                document.getElementById('slideshow-ul').appendChild(li);
+            }
+            initSlideshow();
+        }
+    }
+
+    xhr.open("GET", "get-images.php", true);
+    xhr.send();
+});
