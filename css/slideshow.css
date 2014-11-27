@@ -11,6 +11,16 @@
     float: left;
 }
 
+#caption {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    width: 900px;
+    margin-top: 330px;
+    background: #EEEEEE;
+    opacity: 0.8;
+}
+
 #spanBulletPoint {
     vertical-align: top;
     float: right;
