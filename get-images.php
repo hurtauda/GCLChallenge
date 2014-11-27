@@ -9,6 +9,4 @@ $mobileDetect = new Mobile_Detect();
 
 $path = $mobileDetect->isMobile() ? MOBILE_FILE : DESKTOP_FILE;
 
-sleep(5);
-
 readfile($path);
