@@ -4,6 +4,7 @@ var switching;
 var slideNumber = "slideNumber";
 var hideable = "hideable";
 var totalSlide = "totalSlide";
+var transition = true;
 
 window.paused = true;
 
@@ -34,10 +35,42 @@ function toggleSlide(direction) {
     } else {
         var makeVisible = next(visibleID, elements.length); // get the next slide
     }
+
     elements[makeVisible].style.display = "block"; // show the previous or next slide
+    if (transition) {
+        transitionSlide(visibleID, makeVisible);
+    }
     colorBulletPoints(makeVisible);
 
     slideNumberElement.innerHTML = makeVisible+1;
+}
+
+function transitionSlide(from, to) {
+    setTimeout(function() {
+        var oldImage = document.getElementById(from).children[0];
+        var newImage = document.getElementById(to).children[0];
+        oldImage.setAttribute("class", "tr");
+        newImage.setAttribute("class", "tr opaque");
+    }, 15);
+}
+
+function changeTransition() {
+    transition = !transition;
+    resetImageClass(transition);
+}
+
+//boolean : true for the transition, false without
+function resetImageClass(which) {
+    var nbPoints = getTotalNbSlide();
+    var image;
+    for(var i = 0; i < nbPoints; ++i) {
+        image = document.getElementById(i).children[0];
+        if (which) {
+            image.setAttribute('class', 'tr');
+        } else {
+            image.removeAttribute('class');
+        }
+    }
 }
 
 function getVisible(elements) {
@@ -73,6 +106,7 @@ function getTotalNbSlide() {
     var hideableElement = document.getElementsByClassName(hideable);
     return hideableElement.length;
 }
+
 function setTotalSlide() {
     var totalSlideElement = document.getElementById(totalSlide);
     totalSlideElement.innerText = getTotalNbSlide();
@@ -124,14 +158,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 var li = document.createElement('li');
                 li.setAttribute('id', key);
                 li.setAttribute('class', 'hideable');
-                if (key == 0) {
-                    li.setAttribute('style', 'display: block;');
-                } else {
-                    li.setAttribute('style', 'display: none;');
-                }
 
                 var img = document.createElement('img');
                 img.setAttribute("src", images[key]);
+
+                if (key == 0) {
+                    li.setAttribute('style', 'display: block;');
+                    if (transition) {
+                        img.setAttribute('class', 'tr opaque');
+                    }
+                } else {
+                    li.setAttribute('style', 'display: none;');
+                    if (transition) {
+                        img.setAttribute('class', 'tr');
+                    }
+                }
 
                 li.appendChild(img);
                 var slideshow_ulElement = document.getElementById('slideshow-ul');

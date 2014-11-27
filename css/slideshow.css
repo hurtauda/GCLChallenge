@@ -29,7 +29,7 @@
     margin-top: 5px;
 }
 
-#slideshow-button{
+#slideshow-button {
     position: absolute;
     z-index: 2;
     width: 900px;
@@ -38,9 +38,26 @@
 
 #slideshow img {
     max-width: 900px;
-    max-height: 360px;
+    height: 360px;
     vertical-align: middle;
     position: relative;
+}
+
+#slideshow img.tr {
+    left:0;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    opacity:0;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+}
+
+#slideshow img.tr.opaque {
+    opacity:1;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=1);
 }
 
 #slideshow-ul {
