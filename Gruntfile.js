@@ -4,15 +4,22 @@ module.exports = function (grunt) {
         uncss: {
             dist: {
                 files: [
-                    { src: 'index_dev.html', dest: 'cleancss/design.css' }
+                    { src: 'index_dev.html', dest: 'build/design.css' }
                 ]
             }
         },
         cssmin: {
             dist: {
                 files: [
-                    { src: 'cleancss/design.css', dest: 'cleancss/design.css' }
+                    { src: 'build/design.css', dest: 'build/design.css' }
                 ]
+            }
+        },
+        uglify: {
+            my_target: {
+                files: {
+                    'build/script.min.js': ['js/slideshow.js']
+                }
             }
         }
     });
@@ -20,7 +27,8 @@ module.exports = function (grunt) {
     // Load the plugins
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
  
     // Default tasks.
-    grunt.registerTask('default', ['uncss', 'cssmin']);
+    grunt.registerTask('default', ['uncss', 'cssmin', 'uglify']);
 };
