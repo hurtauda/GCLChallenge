@@ -9,6 +9,7 @@
 }
 
 #slideshow ul {
+    padding-left: 0px;
     position: relative;
     display: inline-block;
     text-align: center;
