@@ -29,3 +29,31 @@
     box-shadow:         0 0 65px #d7d2ce inset, 0 0 20px #b0aba7 inset;
     /*background-image: linear-gradient(to right, white, #E6E6E6);*/
 }
+
+.dots_commands  {
+    padding:0;
+    margin:32px 0 0;
+    text-align: center;
+}
+.dots_commands li {
+    display: inline;
+    padding:0; margin:0;
+}
+.dots_commands a {
+    position: relative;
+    display: inline-block;
+    height:8px; width: 8px;
+    margin: 0 5px;
+    text-indent: -9999px;
+    background: #fff;
+
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.55) inset;
+
+}
+/* quelques styles au focus */
+.dots_commands a:focus {
+    outline: none;
+    background: orange;
+}
+.dots_commands li:first-child a { z-index: 25; }

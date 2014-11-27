@@ -69,6 +69,7 @@ function goToEdge(where) {
 function initSlideshow() {
     setSlideNumber();
     setTotalSlide();
+    setBulletPoints();
 }
 
 function setSlideNumber() {
@@ -76,6 +77,16 @@ function setSlideNumber() {
     document.getElementById(slideNumber).innerText = getVisible(elements) + 1;
 }
 
+function getTotalSlide() {
+    return document.getElementsByClassName(hideable).length;
+}
 function setTotalSlide() {
-    document.getElementById(totalSlide).innerText = document.getElementsByClassName(hideable).length;
+    document.getElementById(totalSlide).innerText = getTotalSlide();
+}
+
+function setBulletPoints() {
+    var nbPoints = getTotalSlide();
+    for(var i = 0; i < nbPoints; i++) {
+        document.getElementsByClassName()
+    }
 }
