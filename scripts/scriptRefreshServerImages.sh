@@ -11,12 +11,12 @@ rm img/m/serv/*
 for file in /var/www/gclcimages/*; do
 #for file in /Users/hurtauda/GCLChallenge/GCLChallenge/gclcimages/*; do
         filename=$(basename $file)
-    	/opt/local/bin/convert $file -scale 900x360\> upload/d$filename
-        /opt/local/bin/jpegtran -copy none -optimize -progressive -outfile img/d/serv/$filename upload/d$filename
+    	/usr/bin/convert $file -scale 900x360\> upload/d$filename
+        /usr/bin/jpegtran -copy none -optimize -progressive -outfile img/d/serv/$filename upload/d$filename
         rm upload/d$filename
 
-        /opt/local/bin/convert $file -scale 320x128\> upload/m$filename
-        /opt/local/bin/jpegtran -copy none -optimize -progressive -outfile img/m/serv/$filename upload/m$filename
+        /usr/bin/convert $file -scale 320x128\> upload/m$filename
+        /usr/bin/jpegtran -copy none -optimize -progressive -outfile img/m/serv/$filename upload/m$filename
         rm upload/m$filename
 done
 
