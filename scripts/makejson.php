@@ -1,11 +1,11 @@
 <?php
-$it = new RecursiveDirectoryIterator("img/d");
+$it = new RecursiveDirectoryIterator(__DIR__."/../img/d");
 $desktop = array();
 $mobile = array();
 foreach(new RecursiveIteratorIterator($it) as $file) {
     $extension = strtolower($file->getExtension());
     if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png') {
-        $image = array('src' => $file->getPathname(), 'desc' => '');
+        $image = array('src' => str_replace('home/login/GCLChallenge','ca600820cc',$file->getPathname()), 'desc' => '');
 
         $propertyFilePath = $file->getPath() . '/' . $file->getBasename('.' . $file->getExtension()) . '.prop';
         if (file_exists($propertyFilePath)) {
@@ -22,11 +22,11 @@ foreach(new RecursiveIteratorIterator($it) as $file) {
     }
 }
 
-$it = new RecursiveDirectoryIterator("img/m");
+$it = new RecursiveDirectoryIterator(__DIR__."/../img/m");
 foreach(new RecursiveIteratorIterator($it) as $file) {
     $extension = strtolower($file->getExtension());
     if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png') {
-        $image = array('src' => $file->getPathname(), 'desc' => '');
+        $image = array('src' => str_replace('home/login/GCLChallenge','ca600820cc',$file->getPathname()), 'desc' => '');
 
         $propertyFilePath = $file->getPath() . '/' . $file->getBasename('.' . $file->getExtension()) . '.prop';
         if (file_exists($propertyFilePath)) {
@@ -43,10 +43,10 @@ foreach(new RecursiveIteratorIterator($it) as $file) {
     }
 }
 
-$desktopjson = fopen('desktop_images.json', 'w');
+$desktopjson = fopen(__DIR__.'/../desktop_images.json', 'w');
 fputs($desktopjson, json_encode($desktop)); // On écrit le nouveau nombre de pages vues
 fclose($desktopjson);
 
-$mobilejson = fopen('mobile_images.json', 'w');
+$mobilejson = fopen(__DIR__.'/../mobile_images.json', 'w');
 fputs($mobilejson, json_encode($mobile)); // On écrit le nouveau nombre de pages vues
 fclose($mobilejson);
