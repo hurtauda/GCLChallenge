@@ -29,7 +29,8 @@ module.exports = function (grunt) {
                     collapseWhitespace: true
                 },
                 files: {
-                    'index.html': 'index_prd.html'
+                    'index.html': 'index_prd.html',
+                    'addimage.html': 'addimage_prd.html'
                 }
             }
         }

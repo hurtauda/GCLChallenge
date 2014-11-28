@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FIL Green - Green Code Lab Challenge">
+    <meta name="author" content="FIL Green - Green Code Lab Challenge">
+
+    <title>FIL Green - Green Code Lab Challenge 2014</title>
+
+    <link href="build/design.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar glc-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <img src="img/gclc.png" width="62" style="float: left;"/>
+                <a class="navbar-brand">GreenCodeLab Challenge 2014</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Upload your pictures !</h1>
+
+            <p>You can upload your pictures (10Mb maximum)</p>
+
+            <form method="POST" action="upload.php" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- On limite le fichier à 10mo -->
+                        <input type="hidden">
+                        <input type="file" name="image">
+                        Copy/Paste your property file here : <textarea id="description" maxlength="200" class="text" cols="100" rows ="5" name="description"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" name="envoyer" value="Send">
+                    </div>
+                </div>
+            </form>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row text-center">
+                <form action="index.html">
+                    <input type="submit" id="addImage" value="Back to home" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <p>Sincerely yours, <a href="http://www.greencodelab-challenge.org" target="_blank">The GreenCodeLab Challenge
+            Team.</a></p>
+    </footer>
+</body>
+
+</html>
