@@ -5,6 +5,7 @@ var slideNumber = "slideNumber";
 var hideable = "hideable";
 var totalSlide = "totalSlide";
 var transition = true;
+var descriptions = [];
 
 window.paused = true;
 
@@ -44,6 +45,7 @@ function toggleSlide(direction) {
     }
     colorBulletPoints(makeVisible);
 
+    document.getElementById('caption').innerHTML = '<p>' + descriptions[makeVisible] + '</p>';
     slideNumberElement.innerHTML = makeVisible+1;
 }
 
@@ -142,6 +144,7 @@ function goToImage(selectedId){
     }
     slideNumberElement.innerHTML = (selectedId + 1);
     colorBulletPoints(selectedId);
+    document.getElementById('caption').innerHTML = '<p>' + descriptions[selectedId] + '</p>';
 }
 
 function colorBulletPoints(selectedId){
@@ -213,15 +216,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
             var images = JSON.parse(xhr.responseText);
             for (var key in images) {
+                descriptions[key] = images[key].desc;
                 var li = document.createElement('li');
                 li.setAttribute('id', key);
                 li.setAttribute('class', 'hideable');
 
                 var img = document.createElement('img');
-                img.setAttribute("src", images[key]);
+                img.setAttribute("src", images[key].src);
 
                 if (key == 0) {
                     li.setAttribute('style', 'display: block;');
+                    document.getElementById('caption').innerHTML = '<p>' + images[key].desc + '</p>';
                     if (transition) {
                         img.setAttribute('class', 'tr opaque');
                     }
@@ -235,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 li.appendChild(img);
                 var slideshow_ulElement = document.getElementById('slideshow-ul');
                 slideshow_ulElement.appendChild(li);
-            }
+            } console.log(descriptions);
             initSlideshow();
             toggleInterval();
 
