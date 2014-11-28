@@ -4,6 +4,7 @@
 
 #slideshow {
     width: 900px;
+    height: 360px;
     margin: auto;
 }
 
@@ -30,12 +31,6 @@
     margin-right: 5px;
 }
 
-#slideshow-pause{
-    /*
-    TODO common paused/.played
-    */
-}
-
 .paused {
     height: 50px;
     cursor:pointer;
@@ -45,7 +40,7 @@
     margin-top: 0px;
     margin-left: 850px;
     background-size: 100%;
-    background: url(../spec%20slideshow/sprite-square.png) no-repeat -55px 0;
+    background: url(../img/sprite-square.png) no-repeat -55px 0;
 }
 
 .played {
@@ -57,7 +52,7 @@
     margin-top: 0px;
     margin-left: 850px;
     background-size: 100%;
-    background: url(../spec%20slideshow/sprite-square.png) no-repeat 0 0;
+    background: url(../img/sprite-square.png) no-repeat 0 0;
 }
 
 #slideshow-Lbutton, #slideshow-Rbutton {
@@ -67,7 +62,7 @@
     height: 50px;
     width: 50px;
     margin-top: 160px;
-    background: url(/spec%20slideshow/sprite-square.png) no-repeat;
+    background: url(../img/sprite-square.png) no-repeat;
 }
 #slideshow-Lbutton {
     margin-left: 0;
@@ -81,7 +76,7 @@
 
 #slideshow img {
     max-width: 900px;
-    height: 360px;
+    max-height: 360px;
     vertical-align: middle;
     position: relative;
     z-index: 3;
@@ -132,18 +127,6 @@
         margin: auto;
     }
 
-    #slideshow-pause{
-        height: 25px;
-        width: 25px;
-        position: absolute;
-        z-index: 2;
-        text-align: center;
-        margin-top: 0px;
-        margin-left: 875px;
-        background: url(/spec%20slideshow/sprite-square.png) no-repeat 0px 0px;
-        background-size: 200%;
-    }
-
     #slideshow img {
         max-width: 300px;
         max-height: 128px;
@@ -162,7 +145,7 @@
         height: 50px;
         width: 50px;
         margin-top: 50px;
-        background: url(/spec%20slideshow/sprite-square.png) no-repeat;
+        background: url(../img/sprite-square.png) no-repeat;
     }
     #slideshow-Lbutton {
         margin-left: 0;
@@ -181,6 +164,30 @@
         margin-top: 100px;
         background: #EEEEEE;
         opacity: 0.8;
+    }
+
+    .paused {
+        height: 50px;
+        cursor:pointer;
+        width: 50px;
+        position: absolute;
+        z-index: 2;
+        margin-top: 0px;
+        margin-left: 250px;
+        background-size: 100%;
+        background: url(../img/sprite-square.png) no-repeat -55px 0;
+    }
+
+    .played {
+        height: 50px;
+        cursor:pointer;
+        width: 50px;
+        position: absolute;
+        z-index: 2;
+        margin-top: 0px;
+        margin-left: 250px;
+        background-size: 100%;
+        background: url(../img/sprite-square.png) no-repeat 0 0;
     }
 }
 

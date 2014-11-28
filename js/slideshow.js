@@ -138,6 +138,9 @@ function goToImage(selectedId){
     var visibleID = getVisible(elements);
     elements[visibleID].style.display = "none"; // hide the currently visible LI
     elements[selectedId].style.display = "block"; // show the slide
+    if (transition) {
+        transitionSlide(visibleID, selectedId);
+    }
     slideNumberElement.innerHTML = (selectedId + 1);
     colorBulletPoints(selectedId);
 }
@@ -204,6 +207,7 @@ function swipeListener(el,d) {
 detectswipe('slideshow-ul',swipeListener);
 
 document.addEventListener("DOMContentLoaded", function(event) {
+    document.getElementById('slideshow-ul').innerHTML = "";
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
