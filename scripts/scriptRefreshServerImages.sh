@@ -11,7 +11,7 @@ rm img/m/serv/*
 for file in /var/www/gclcimages/*; do
 #for file in /Users/hurtauda/GCLChallenge/GCLChallenge/gclcimages/*; do
         filename=$(basename "$file")
-        #extension="${filename##*.}"
+        extension="${filename##*.}"
         #filenamenoextension="${filename%.*}"
         #jpgextension=".jpg"
 
