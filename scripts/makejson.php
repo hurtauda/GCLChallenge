@@ -38,6 +38,8 @@ foreach(new RecursiveIteratorIterator($it) as $file) {
                 }
             }
         }
+
+        $mobile[] = $image;
     }
 }
 
