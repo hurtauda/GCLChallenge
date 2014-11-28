@@ -31,18 +31,38 @@
 }
 
 #slideshow-pause{
+    /*
+    TODO common paused/.played
+    */
+}
+
+.paused {
     height: 50px;
+    cursor:pointer;
     width: 50px;
     position: absolute;
     z-index: 2;
-    margin-top: -25px;
-    margin-left: 845px;
-    background: url(/spec%20slideshow/sprite-square.png) no-repeat 32px 32px;
-    background-size: 75%;
+    margin-top: 0px;
+    margin-left: 850px;
+    background-size: 100%;
+    background: url(../spec%20slideshow/sprite-square.png) no-repeat -55px 0;
+}
+
+.played {
+    height: 50px;
+    cursor:pointer;
+    width: 50px;
+    position: absolute;
+    z-index: 2;
+    margin-top: 0px;
+    margin-left: 850px;
+    background-size: 100%;
+    background: url(../spec%20slideshow/sprite-square.png) no-repeat 0 0;
 }
 
 #slideshow-Lbutton, #slideshow-Rbutton {
     position: absolute;
+    cursor:pointer;
     z-index: 2;
     height: 50px;
     width: 50px;

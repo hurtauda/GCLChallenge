@@ -13,13 +13,14 @@ function toggleInterval(paused) {
         window.paused = paused;
     }
     var buttonPause = document.getElementById("slideshow-pause");
+    console.log(buttonPause);
     if(!window.paused) {
         clearInterval(switching);
-        buttonPause.backgroundPosition = "-50px 0px";
+        buttonPause.setAttribute("class","paused");
         console.log("Stop!");
     } else {
         switching = setInterval("toggleSlide(true)", interval);
-        buttonPause.backgroundPosition = "0px 0px";
+        buttonPause.setAttribute("class","played");
         console.log("Play!");
     }
     window.paused = !(window.paused);
