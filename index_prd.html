@@ -36,7 +36,7 @@
 <div class="container">
     <div class="row">
         <div id="slideshow" class="text-center">
-            <div id="slideshow-pause" onclick="toggleInterval();">
+            <div class="paused" id="slideshow-pause" onclick="toggleInterval();">
             </div>
             <div id="slideshow-Lbutton" onclick="toggleSlide(false);">
             </div>
@@ -60,7 +60,16 @@
                     </span>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-6 text-right">
             <input type="button" id="transition" value="Transition" onclick="changeTransition()" />
+        </div>
+        <div class="col-md-6 text-left">
+            <form action="addimage.html">
+                <input type="submit" id="addImage" value="Upload Image" />
+            </form>
         </div>
     </div>
     <div class="row">
@@ -89,19 +98,8 @@
 
         <div class="col-md-4">
             <h2>What's hot on Twitter?</h2>
-            <a class="twitter-timeline" href="https://twitter.com/hashtag/GCLChallenge"
-               data-widget-id="537334197569200128">Tweets sur #GCLChallenge</a>
-            <script>
-                !function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + "://platform.twitter.com/widgets.js";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, "script", "twitter-wjs");
-            </script>
+            <a class="twitter-timeline" href="https://twitter.com/hashtag/GCLChallenge" data-widget-id="538102575825158144">Tweets sur #GCLChallenge</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             <h4>
                 <div class="text-center well">Share your thoughts!</div>
             </h4>

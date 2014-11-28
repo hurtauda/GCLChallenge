@@ -10,14 +10,24 @@ rm img/m/serv/*
 
 for file in /var/www/gclcimages/*; do
 #for file in /Users/hurtauda/GCLChallenge/GCLChallenge/gclcimages/*; do
-        filename=$(basename $file)
-    	/usr/bin/convert $file -scale 900x360\> img/d/serv/$filename #upload/d$filename
-        #/usr/bin/jpegtran -copy none -optimize -progressive -outfile img/d/serv/$filename upload/d$filename
-        #rm upload/d$filename
+        filename=$(basename "$file")
+        extension="${filename##*.}"
+        #filenamenoextension="${filename%.*}"
+        #jpgextension=".jpg"
 
-        /usr/bin/convert $file -scale 320x128\> img/m/serv/$filename #upload/m$filename
-        #/usr/bin/jpegtran -copy none -optimize -progressive -outfile img/m/serv/$filename upload/m$filename
-        #rm upload/m$filename
+        #if [[ $extension == "png" ]]
+        #then
+        #    /usr/bin/mogrify -path upload -format jpg "${file}"
+    	#    /usr/bin/convert upload/"${filenamenoextension}"$jpgextension -scale 900x360\> img/d/serv/"${filenamenoextension}"$jpgextension
+    	#    /usr/bin/convert upload/"${filenamenoextension}"$jpgextension -scale 320x128\> img/m/serv/"${filenamenoextension}"$jpgextension
+    	#    rm upload/"${filenamenoextension}"$jpgextension
+    	if [[ $extension == "png" ]] || [[ $extension == "jpg" ]] || [[ $extension == "jpeg" ]]
+    	then
+    	    /usr/bin/convert $file -scale 900x360\> img/d/serv/$filename
+    	    /usr/bin/convert $file -scale 320x128\> img/m/serv/$filename
+    	fi
+
+    	rm /tmp/magick-*
 done
 
 /usr/bin/php scripts/makejson.php

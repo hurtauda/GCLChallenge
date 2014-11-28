@@ -15,10 +15,10 @@ function toggleInterval(paused) {
     var buttonPause = document.getElementById("slideshow-pause");
     if(!window.paused) {
         clearInterval(switching);
-        buttonPause.backgroundPosition = "-50px 0px";
+        buttonPause.setAttribute("class", "paused");
     } else {
         switching = setInterval("toggleSlide(true)", interval);
-        buttonPause.backgroundPosition = "0px 0px";
+        buttonPause.setAttribute("class", "played");
     }
     window.paused = !(window.paused);
 }
