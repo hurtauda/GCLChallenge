@@ -30,7 +30,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'index.html': 'index_prd.html',
-                    'addimage.html': 'upload_prd.html'
+                    'backoffice/upload.html': 'backoffice/upload_prd.html'
                 }
             }
         }
