@@ -21,7 +21,7 @@
 <nav class="navbar glc-navbar navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <img src="img/gclc.png" width="62" style="float: left;"/>
+            <img src="img/gclc.png" width="61" height="46" style="float: left;"/>
             <a class="navbar-brand">GreenCodeLab Challenge 2014</a>
         </div>
     </div>
@@ -40,7 +40,7 @@
 <div class="container">
     <div class="row">
         <div id="slideshow" class="text-center">
-            <div id="slideshow-pause" onclick="toggleInterval();">
+            <div class="paused" id="slideshow-pause" onclick="toggleInterval();">
             </div>
             <div id="slideshow-Lbutton" onclick="toggleSlide(false);">
             </div>
@@ -62,7 +62,16 @@
                     </span>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-6 text-right">
             <input type="button" id="transition" value="Transition" onclick="changeTransition()" />
+        </div>
+        <div class="col-md-6 text-left">
+            <form action="addimage.html">
+                <input type="submit" id="addImage" value="Upload Image" />
+            </form>
         </div>
     </div>
     <div class="row">
@@ -110,5 +119,5 @@
 
 <!-- Slideshow JS -->
 <script type="text/javascript" src="js/slideshow.js"></script>
-
+<div class="played"></div>
 </html>
