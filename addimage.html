@@ -31,13 +31,26 @@
             <p>You can upload your pictures (10Mb maximum)</p>
 
             <form method="POST" action="upload.php" enctype="multipart/form-data">
-                <!-- On limite le fichier à 10mo -->
-                <input type="hidden">
-                <p>Select your file : </p><input type="file" name="image">
-                <input type="submit" name="envoyer" value="Send">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- On limite le fichier à 10mo -->
+                        <input type="hidden">
+                        <input type="file" name="image">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" name="envoyer" value="Send">
+                    </div>
+                </div>
             </form>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row text-center">
+                <form action="index.html">
+                    <input type="submit" id="addImage" value="Back to home" />
+                </form>
+            </div>
         </div>
-
     </div>
     <hr>
 

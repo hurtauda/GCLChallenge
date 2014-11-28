@@ -4,6 +4,7 @@
 
 #slideshow {
     width: 900px;
+    height: 360px;
     margin: auto;
 }
 
@@ -37,7 +38,7 @@
     z-index: 2;
     margin-top: -25px;
     margin-left: 845px;
-    background: url(/spec%20slideshow/sprite-square.png) no-repeat 32px 32px;
+    background: url(../img/sprite-square.png) no-repeat 32px 32px;
     background-size: 75%;
 }
 
@@ -47,7 +48,7 @@
     height: 50px;
     width: 50px;
     margin-top: 160px;
-    background: url(/spec%20slideshow/sprite-square.png) no-repeat;
+    background: url(../img/sprite-square.png) no-repeat;
 }
 #slideshow-Lbutton {
     margin-left: 0;
@@ -61,7 +62,7 @@
 
 #slideshow img {
     max-width: 900px;
-    height: 360px;
+    max-height: 360px;
     vertical-align: middle;
     position: relative;
     z-index: 3;
@@ -120,7 +121,7 @@
         text-align: center;
         margin-top: 0px;
         margin-left: 875px;
-        background: url(/spec%20slideshow/sprite-square.png) no-repeat 0px 0px;
+        background: url(../img/sprite-square.png) no-repeat 0px 0px;
         background-size: 200%;
     }
 
@@ -142,7 +143,7 @@
         height: 50px;
         width: 50px;
         margin-top: 50px;
-        background: url(/spec%20slideshow/sprite-square.png) no-repeat;
+        background: url(../img/sprite-square.png) no-repeat;
     }
     #slideshow-Lbutton {
         margin-left: 0;
