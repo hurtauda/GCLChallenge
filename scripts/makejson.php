@@ -3,15 +3,41 @@ $it = new RecursiveDirectoryIterator("img/d");
 $desktop = array();
 $mobile = array();
 foreach(new RecursiveIteratorIterator($it) as $file) {
-    if($file->isFile()) {
-        array_push($desktop, $file->getPathname());
+    $extension = strtolower($file->getExtension());
+    if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png') {
+        $image = array('src' => $file->getPathname(), 'desc' => '');
+
+        $propertyFilePath = $file->getPath() . '/' . $file->getBasename('.' . $file->getExtension()) . '.prop';
+        if (file_exists($propertyFilePath)) {
+            $file = file($propertyFilePath);
+            foreach ($file as $lineContent) {
+                if (substr($lineContent, 0, 12) === "Description=") {
+                    $image['desc'] = substr($lineContent, 12);
+                    break;
+                }
+            }
+        }
+
+        $desktop[] = $image;
     }
 }
 
 $it = new RecursiveDirectoryIterator("img/m");
 foreach(new RecursiveIteratorIterator($it) as $file) {
-    if($file->isFile()) {
-        array_push($mobile, $file->getPathname());
+    $extension = strtolower($file->getExtension());
+    if ($extension === 'jpg' || $extension === 'jpeg' || $extension === 'png') {
+        $image = array('src' => $file->getPathname(), 'desc' => '');
+
+        $propertyFilePath = $file->getPath() . '/' . $file->getBasename('.' . $file->getExtension()) . '.prop';
+        if (file_exists($propertyFilePath)) {
+            $file = file($propertyFilePath);
+            foreach ($file as $lineContent) {
+                if (substr($lineContent, 0, 12) === "Description=") {
+                    $image['desc'] = substr($lineContent, 12);
+                    break;
+                }
+            }
+        }
     }
 }
 
