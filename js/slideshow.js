@@ -1,8 +1,6 @@
 "use strict";
-
 var interval = 3000; // You can change this value to your desired speed. The value is in milliseconds, so if you want to advance a slide every 5 seconds, set this to 5000.
 var switching;
-
 var slideNumber = "slideNumber";
 var hideable = "hideable";
 var totalSlide = "totalSlide";
@@ -85,11 +83,11 @@ function getVisible(elements) {
 }
 
 function prev(num, arrayLength) {
-    return (num == 0) ? arrayLength - 1 : num - 1;
+    return (num === 0) ? arrayLength - 1 : num - 1;
 }
 
 function next(num, arrayLength) {
-    return (num == arrayLength-1) ? 0 : num + 1;
+    return (num === arrayLength-1) ? 0 : num + 1;
 }
 
 function initSlideshow() {
@@ -149,6 +147,58 @@ function colorBulletPoints(selectedId){
     }
     currentPoint.style.background = "#7CB17D";
 }
+
+function detectswipe(el,func) {
+    var swipe_det = new Object();
+    swipe_det.sX = 0;
+    swipe_det.sY = 0;
+    swipe_det.eX = 0;
+    swipe_det.eY = 0;
+    var min_x = 20;  //min x swipe for horizontal swipe
+    var max_x = 40;  //max x difference for vertical swipe
+    var min_y = 40;  //min y swipe for vertical swipe
+    var max_y = 50;  //max y difference for horizontal swipe
+    var direc = "";
+    var ele = document.getElementById(el);
+    ele.addEventListener('touchstart',function(e){
+        var t = e.touches[0];
+        swipe_det.sX = t.screenX;
+        swipe_det.sY = t.screenY;
+    },false);
+    ele.addEventListener('touchmove',function(e){
+        e.preventDefault();
+        var t = e.touches[0];
+        swipe_det.eX = t.screenX;
+        swipe_det.eY = t.screenY;
+    },false);
+    ele.addEventListener('touchend',function(e){
+        //horizontal detection
+        if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y)))) {
+            if(swipe_det.eX > swipe_det.sX) direc = "r";
+            else direc = "l";
+        }
+        //vertical detection
+        if ((((swipe_det.eY - min_y > swipe_det.sY) || (swipe_det.eY + min_y < swipe_det.sY)) && ((swipe_det.eX < swipe_det.sX + max_x) && (swipe_det.sX > swipe_det.eX - max_x)))) {
+            if(swipe_det.eY > swipe_det.sY) direc = "d";
+            else direc = "u";
+        }
+
+        if (direc != "") {
+            if(typeof func == 'function') func(el,direc);
+        }
+        direc = "";
+    },false);
+}
+
+function swipeListener(el,d) {
+    if (d === "l"){
+        toggleSlide(true);
+    } else{
+        toggleSlide(false)
+    }
+}
+
+detectswipe('slideshow-ul',swipeListener);
 
 document.addEventListener("DOMContentLoaded", function(event) {
     var xhr = new XMLHttpRequest();
