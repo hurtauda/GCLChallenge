@@ -40,16 +40,11 @@
 <div class="container">
     <div class="row">
         <div id="slideshow" class="text-center">
-            <div id="slideshow-pause">
-                <form id="slideshow-navbar-pause">
-                    <input class=pButton id="pauseButton" onclick="toggleInterval()" type="button" value="Play" disabled/>
-                </form>
+            <div id="slideshow-pause" onclick="toggleInterval();">
             </div>
-            <div id="slideshow-button">
-                <form id="slideshow-navbar-button">
-                    <input class=mButton id="leftButton" type="button" value="&#8592;" onclick="toggleSlide(false)" disabled />
-                    <input class=mButton id="rightButton" type="button" value="&#8594;" onclick="toggleSlide(true)" disabled />
-                </form>
+            <div id="slideshow-Lbutton" onclick="toggleSlide(false);">
+            </div>
+            <div id="slideshow-Rbutton" onclick="toggleSlide(true);">
             </div>
             <div id="slideshow-image">
                 <div id="caption">

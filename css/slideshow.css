@@ -13,7 +13,7 @@
 
 #caption {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     text-align: center;
     width: 900px;
     margin-top: 330px;
@@ -33,17 +33,30 @@
 #slideshow-pause{
     position: absolute;
     z-index: 2;
-    width: 900px;
+    width: 50px;
+    height: 50px;
     text-align: right;
-    margin-right: 5px;
     margin-top: 5px;
+    margin-left: 840px;
+    background: url(/spec%20slideshow/sprite-square.png) no-repeat 0px 0px;
 }
 
-#slideshow-button {
+#slideshow-Lbutton, #slideshow-Rbutton {
     position: absolute;
     z-index: 2;
-    width: 900px;
-    margin-top: 180px;
+    height: 50px;
+    width: 50px;
+    margin-top: 160px;
+    background: url(/spec%20slideshow/sprite-square.png) no-repeat;
+}
+#slideshow-Lbutton {
+    margin-left: 0px;
+    background-position: 0px -110px;
+}
+
+#slideshow-Rbutton {
+    margin-left: 850px;
+    background-position: 0px -55px;
 }
 
 #slideshow img {
@@ -51,6 +64,7 @@
     height: 360px;
     vertical-align: middle;
     position: relative;
+    z-index: 3;
 }
 
 #slideshow img.tr {
@@ -98,51 +112,54 @@
         margin: auto;
     }
 
+    #slideshow-pause{
+        position: absolute;
+        z-index: 2;
+        width: 50px;
+        height: 50px;
+        margin-top: 0px;
+        margin-left: 250px;
+        background: url(/spec%20slideshow/sprite-square.png) no-repeat 0px 0px;
+    }
+
     #slideshow img {
         max-width: 300px;
         max-height: 128px;
         vertical-align: middle;
         position: relative;
+        z-index: 3;
     }
     #slideshow-ul {
         width: 300px;
         height: 128px;
         text-align: center;
     }
-    #slideshow-button{
+    #slideshow-Lbutton, #slideshow-Rbutton {
         position: absolute;
         z-index: 2;
-        width: 300px;
-        margin-top: 60px;
+        height: 50px;
+        width: 50px;
+        margin-top: 50px;
+        background: url(/spec%20slideshow/sprite-square.png) no-repeat;
     }
-    #slideshow-pause{
-        position: absolute;
-        z-index: 2;
-        width: 300px;
-        text-align: right;
-        margin-right: 5px;
-        margin-top: 5px;
+    #slideshow-Lbutton {
+        margin-left: 0px;
+        background-position: 0px -110px;
+    }
+
+    #slideshow-Rbutton {
+        margin-left: 250px;
+        background-position: 0px -55px;
     }
     #caption {
         position: absolute;
-        z-index: 2;
+        z-index: 4;
         text-align: center;
         width: 300px;
-        height: 10px;
-
-        margin-top: 128px;
-
+        margin-top: 100px;
         background: #EEEEEE;
         opacity: 0.8;
     }
-}
-
-#leftButton {
-    float: left;
-}
-
-#rightButton {
-    float: right;
 }
 
 .dots_commands  {
@@ -159,7 +176,7 @@
 .dots_commands a {
     position: relative;
     display: inline-block;
-    height:8px; width: 8px;
+    height:14px; width: 14px;
     margin: 0 5px;
     text-indent: -9999px;
     background: #000000;

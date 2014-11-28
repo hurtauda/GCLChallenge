@@ -12,13 +12,15 @@ function toggleInterval(paused) {
     if (paused !== undefined) {
         window.paused = paused;
     }
-    var button = document.getElementById("pauseButton");
+    var buttonPause = document.getElementById("slideshow-pause");
     if(!window.paused) {
         clearInterval(switching);
-        button.value = "Play";
+        buttonPause.backgroundPosition = "-50px 0px";
+        console.log("Stop!");
     } else {
         switching = setInterval("toggleSlide(true)", interval);
-        button.value = "Pause";
+        buttonPause.backgroundPosition = "0px 0px";
+        console.log("Play!");
     }
     window.paused = !(window.paused);
 }
@@ -258,6 +260,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
 
+            /*
             var slideshow_navbar_pauseElement = document.getElementById('slideshow-navbar-pause');
             var navItemsPause = slideshow_navbar_pauseElement.children;
 
@@ -265,12 +268,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 navItemsPause[i].removeAttribute('disabled');
             }
 
-            var slideshow_navbar_buttonElement = document.getElementById('slideshow-navbar-button');
-            var navItemsButton = slideshow_navbar_buttonElement.children;
+            var slideshow_navbar_LbuttonElement = document.getElementById('slideshow-navbar-Lbutton');
+            var navItemsLButton = slideshow_navbar_LbuttonElement.children;
 
-            for (var i = 0; i < navItemsButton.length; ++i) {
-                navItemsButton[i].removeAttribute('disabled');
+            for (var i = 0; i < navItemsLButton.length; ++i) {
+                navItemsLButton[i].removeAttribute('disabled');
             }
+
+            var slideshow_navbar_RbuttonElement = document.getElementById('slideshow-navbar-Rbutton');
+            var navItemsRButton = slideshow_navbar_RbuttonElement.children;
+
+            for (var i = 0; i < navItemsRButton.length; ++i) {
+                navItemsRButton[i].removeAttribute('disabled');
+            }
+            */
 
         }
     }
