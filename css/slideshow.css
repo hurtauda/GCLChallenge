@@ -31,14 +31,14 @@
 }
 
 #slideshow-pause{
+    height: 50px;
+    width: 50px;
     position: absolute;
     z-index: 2;
-    width: 50px;
-    height: 50px;
-    text-align: right;
-    margin-top: 5px;
-    margin-left: 840px;
-    background: url(/spec%20slideshow/sprite-square.png) no-repeat 0px 0px;
+    margin-top: -25px;
+    margin-left: 845px;
+    background: url(/spec%20slideshow/sprite-square.png) no-repeat 32px 32px;
+    background-size: 75%;
 }
 
 #slideshow-Lbutton, #slideshow-Rbutton {
@@ -50,13 +50,13 @@
     background: url(/spec%20slideshow/sprite-square.png) no-repeat;
 }
 #slideshow-Lbutton {
-    margin-left: 0px;
-    background-position: 0px -110px;
+    margin-left: 0;
+    background-position: 0 -110px;
 }
 
 #slideshow-Rbutton {
     margin-left: 850px;
-    background-position: 0px -55px;
+    background-position: 0 -55px;
 }
 
 #slideshow img {
@@ -113,13 +113,15 @@
     }
 
     #slideshow-pause{
+        height: 25px;
+        width: 25px;
         position: absolute;
         z-index: 2;
-        width: 50px;
-        height: 50px;
+        text-align: center;
         margin-top: 0px;
-        margin-left: 250px;
+        margin-left: 875px;
         background: url(/spec%20slideshow/sprite-square.png) no-repeat 0px 0px;
+        background-size: 200%;
     }
 
     #slideshow img {
@@ -143,13 +145,13 @@
         background: url(/spec%20slideshow/sprite-square.png) no-repeat;
     }
     #slideshow-Lbutton {
-        margin-left: 0px;
-        background-position: 0px -110px;
+        margin-left: 0;
+        background-position: 0 -110px;
     }
 
     #slideshow-Rbutton {
         margin-left: 250px;
-        background-position: 0px -55px;
+        background-position: 0 -55px;
     }
     #caption {
         position: absolute;
@@ -164,7 +166,7 @@
 
 .dots_commands  {
     padding:0;
-    margin:0px 0 0;
+    margin:0 0 0;
     text-align: right;
 }
 
