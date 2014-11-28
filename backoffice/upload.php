@@ -1,6 +1,6 @@
 <?php
 if(isset($_FILES['image'])) {
-    $dossier = 'upload/';
+    $dossier = '../upload/';
     $fichier = basename($_FILES['image']['name']);
 
     preg_match("/^(.+)\\.(.+)$/", $fichier, $matches);
@@ -13,11 +13,11 @@ if(isset($_FILES['image'])) {
             file_put_contents('img/m/user/'.$matches[1].'.prop', $_POST['description']);
 
             $result = exec('/bin/sh scripts/scriptUpload.sh ' . $dossier . $fichier . ' ' . $fichier);
-            header('Location: index.html');
+            header('Location: ../index.html');
         } else //Sinon (la fonction renvoie FALSE).
         {
             echo 'Upload failed ! Please try again later...';
-            echo '<a href=../index.html>';
+            echo '<a href=../index.html>Go back</a>';
         }
     } else {
         echo 'Forbidden file ! (only png and jpg)</br>';
