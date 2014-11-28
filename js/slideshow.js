@@ -16,11 +16,9 @@ function toggleInterval(paused) {
     if(!window.paused) {
         clearInterval(switching);
         buttonPause.backgroundPosition = "-50px 0px";
-        console.log("Stop!");
     } else {
         switching = setInterval("toggleSlide(true)", interval);
         buttonPause.backgroundPosition = "0px 0px";
-        console.log("Play!");
     }
     window.paused = !(window.paused);
 }
@@ -203,8 +201,6 @@ function swipeListener(el,d) {
     }
 }
 
-detectswipe('slideshow-ul',swipeListener);
-
 document.addEventListener("DOMContentLoaded", function(event) {
     document.getElementById('slideshow-ul').innerHTML = "";
     var xhr = new XMLHttpRequest();
@@ -236,6 +232,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 var slideshow_ulElement = document.getElementById('slideshow-ul');
                 slideshow_ulElement.appendChild(li);
             }
+
+            detectswipe('slideshow-ul',swipeListener);
             initSlideshow();
             toggleInterval();
 
@@ -264,31 +262,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
 
-            /*
-            var slideshow_navbar_pauseElement = document.getElementById('slideshow-navbar-pause');
-            var navItemsPause = slideshow_navbar_pauseElement.children;
-
-            for (var i = 0; i < navItemsPause.length; ++i) {
-                navItemsPause[i].removeAttribute('disabled');
-            }
-
-            var slideshow_navbar_LbuttonElement = document.getElementById('slideshow-navbar-Lbutton');
-            var navItemsLButton = slideshow_navbar_LbuttonElement.children;
-
-            for (var i = 0; i < navItemsLButton.length; ++i) {
-                navItemsLButton[i].removeAttribute('disabled');
-            }
-
-            var slideshow_navbar_RbuttonElement = document.getElementById('slideshow-navbar-Rbutton');
-            var navItemsRButton = slideshow_navbar_RbuttonElement.children;
-
-            for (var i = 0; i < navItemsRButton.length; ++i) {
-                navItemsRButton[i].removeAttribute('disabled');
-            }
-            */
-
+            document.addEventListener("visibilitychange", visibilityChange);
         }
     }
     xhr.open("GET", "get-images.php", true);
     xhr.send();
 });
+
+function visibilityChange() {
+    toggleInterval(window.paused);
+}
