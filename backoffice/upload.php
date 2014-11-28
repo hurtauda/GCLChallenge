@@ -17,10 +17,10 @@ if(isset($_FILES['image'])) {
         } else //Sinon (la fonction renvoie FALSE).
         {
             echo 'Upload failed ! Please try again later...';
-            echo '<a href=index.html/>';
+            echo '<a href=../index.html>';
         }
     } else {
         echo 'Forbidden file ! (only png and jpg)</br>';
-        echo '<a href="index.html">Go back</a>';
+        echo '<a href="../index.html">Go back</a>';
     }
 }
